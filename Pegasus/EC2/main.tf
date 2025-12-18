@@ -67,7 +67,7 @@ resource "aws_route_table_association" "public_route_table_association" {
 #Datos instancia Ec2
 ###
 resource "aws_instance" "public_instance" {
-  ami           = "ami-0a887e37c04b31207"
+  ami           = "ami-068c0051b15cdb816"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public_subnet.id
   tags = {
