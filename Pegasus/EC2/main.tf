@@ -64,13 +64,52 @@ resource "aws_route_table_association" "public_route_table_association" {
 }
 
 ###
+#Datos Security Group
+##
+resource "aws_security_group" "SG_Allow_SSH_HTTP" {
+  name        = "SG_Allow_SSH_HTTP"
+  description = "Allow SSH and HTTP"
+  vpc_id      = aws_vpc.vpc_virginia.id
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+
+  }
+  egress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+resource "aws_security_group" "SG_Allow_HTTP" {
+  name        = "SG_Allow_HTTP"
+  description = "Allow HTTP"
+  vpc_id      = aws_vpc.vpc_virginia.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+###
 #Datos instancia Ec2
 ###
 resource "aws_instance" "public_instance" {
-  ami           = "ami-068c0051b15cdb816"
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.public_subnet.id
+  ami             = "ami-068c0051b15cdb816"
+  instance_type   = "t2.micro"
+  subnet_id       = aws_subnet.public_subnet.id
+  security_groups = [aws_security_group.SG_Allow_SSH_HTTP.name]
   tags = {
-    "Name" = "public_instance"
+    "Name"  = "public_instance"
+    "Owner" = "Andres"
   }
 }
+
+
