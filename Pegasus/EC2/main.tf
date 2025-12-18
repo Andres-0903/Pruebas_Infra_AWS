@@ -76,24 +76,20 @@ resource "aws_security_group" "SG_Allow_SSH_HTTP" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-
   }
-  egress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-resource "aws_security_group" "SG_Allow_HTTP" {
-  name        = "SG_Allow_HTTP"
-  description = "Allow HTTP"
-  vpc_id      = aws_vpc.vpc_virginia.id
 
   ingress {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # salida TOTAL
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -102,13 +98,15 @@ resource "aws_security_group" "SG_Allow_HTTP" {
 #Datos instancia Ec2
 ###
 resource "aws_instance" "public_instance" {
-  ami             = "ami-068c0051b15cdb816"
-  instance_type   = "t2.micro"
-  subnet_id       = aws_subnet.public_subnet.id
-  security_groups = [aws_security_group.SG_Allow_SSH_HTTP.name]
+  ami                    = "ami-068c0051b15cdb816"
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.public_subnet.id
+  key_name               = data.aws_key_pair.my_key.key_name
+  vpc_security_group_ids = [aws_security_group.SG_Allow_SSH_HTTP.id]
+
   tags = {
-    "Name"  = "public_instance"
-    "Owner" = "Andres"
+    Name  = "public_instance"
+    Owner = "Andres"
   }
 }
 
