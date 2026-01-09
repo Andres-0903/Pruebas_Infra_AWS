@@ -2,7 +2,7 @@
 #Datos VPC
 ##
 resource "aws_vpc" "vpc_virginia" {
-  cidr_block = "10.0.0.0/16"
+  cidr_block = var.viriginia_cidr
   tags = {
     Name = "vpc_virginia"
   }
@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc_virginia" {
 
 resource "aws_subnet" "private_subnet" {
   vpc_id     = aws_vpc.vpc_virginia.id
-  cidr_block = "10.0.1.0/24"
+  cidr_block = var.subnets_cidr[1]
 
   tags = {
     "Name" = "Private_subnet"
@@ -20,7 +20,7 @@ resource "aws_subnet" "private_subnet" {
 
 resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.vpc_virginia.id
-  cidr_block = "10.0.2.0/24"
+  cidr_block = var.subnets_cidr[0]
 
   tags = {
     "Name" = "Public_subnet"
@@ -50,9 +50,8 @@ resource "aws_route_table" "route_table" {
 }
 
 resource "aws_route" "route" {
-  route_table_id         = aws_route_table.route_table.id
-  destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.internet_gateway.id
+  route_table_id = aws_route_table.route_table.id
+  gateway_id     = aws_internet_gateway.internet_gateway.id
 }
 
 ###
@@ -93,24 +92,3 @@ resource "aws_security_group" "SG_Allow_SSH_HTTP" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-###
-#Datos instancia Ec2
-###
-resource "aws_instance" "public_instance" {
-  ami                    = "ami-068c0051b15cdb816"
-  instance_type          = "t2.micro"
-  subnet_id              = aws_subnet.public_subnet.id
-  key_name               = data.aws_key_pair.my_key.key_name
-  vpc_security_group_ids = [aws_security_group.SG_Allow_SSH_HTTP.id]
-
-  tags = {
-    Name  = "public_instance"
-    Owner = "Andres"
-  }
-}
-
-data "aws_key_pair" "my_key" {
-  key_name = "my_key"
-}
-

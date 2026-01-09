@@ -1,0 +1,33 @@
+###Variables Network###
+variable "viriginia_cidr" {
+  description = "CIDR Virginia"
+  type        = string
+}
+
+variable "subnets_cidr" {
+  description = "CIDR de las subnets"
+  type        = list(string)
+}
+
+
+variable "sg_cidr_shh" {
+  description = "CIDR SG"
+  type        = string
+}
+
+###Variables EC2###
+variable "ec2_specs" {
+  description = "caracteristicas  de la instancia EC2"
+  type        = map(string)
+}
+
+variable "tags_generales" {
+  description = "tags generales"
+  type        = map(string)
+}
+
+variable "instancias" {
+  description = "Nombre de las instancias"
+  type        = set(string)
+}
+
