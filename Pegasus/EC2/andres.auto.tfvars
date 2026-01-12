@@ -23,3 +23,5 @@ instancias = ["monitoreo1", "monitoreo2", "monitoreo3"]
 project = "Monitoreo"
 
 environment = "Dev"
+
+ec2_instances = ["i-09e760154b7e7c682", "i-09e760154b7e7c682", "i-089305ba0767eb28d"]
