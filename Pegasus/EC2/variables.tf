@@ -31,3 +31,14 @@ variable "instancias" {
   type        = set(string)
 }
 
+
+###Variables generales
+variable "project" {
+  description = "Nombre del proyecto"
+  type        = string
+}
+
+variable "environment" {
+  description = "Entorno de despliegue"
+  type        = string
+}

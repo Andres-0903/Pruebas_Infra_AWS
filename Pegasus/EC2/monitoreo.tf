@@ -5,4 +5,8 @@
 
 module "ec2_monitoring" {
   source = "git::https://github.com/Andres-0903/Infra_AWS_Module_Monitoring_EC2.git?ref=1.0.1"
+
+  instances   = ["monitreo1", "monitreo2", "monitreo3"]
+  project     = monitoreo
+  environment = dev
 }

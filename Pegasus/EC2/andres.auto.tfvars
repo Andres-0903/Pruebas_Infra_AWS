@@ -19,3 +19,7 @@ tags_generales = {
 }
 
 instancias = ["monitoreo1", "monitoreo2", "monitoreo3"]
+
+project = "Monitoreo"
+
+environment = "Dev"
