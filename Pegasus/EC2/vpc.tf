@@ -52,11 +52,6 @@ resource "aws_route_table" "route_table" {
 
 }
 
-resource "aws_route" "route" {
-  route_table_id = aws_route_table.route_table.id
-  gateway_id     = aws_internet_gateway.internet_gateway.id
-}
-
 ###
 #Datos Route Table Association
 ##
