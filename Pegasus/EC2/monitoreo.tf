@@ -9,4 +9,5 @@ module "ec2_monitoring" {
   ec2_instances = ["i-09e760154b7e7c682", "i-09e760154b7e7c682", "i-089305ba0767eb28d"]
   project       = "monitoreo"
   environment   = "dev"
+  sns_topic_arn = var.sns_topic_arn
 }
