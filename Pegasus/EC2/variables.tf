@@ -54,7 +54,3 @@ variable "ec2_instances" {
 }
 
 
-variable "sns_topic_arn" {
-  description = "ARN del SNS Topic"
-  type        = list(string)
-}
