@@ -50,7 +50,9 @@ variable "environment" {
 
 variable "ec2_instances" {
   description = "IDs de las instancias"
-  type        = list(string)
+  type = list(object({
+    id = string
+  }))
 }
 
 

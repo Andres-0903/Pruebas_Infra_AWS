@@ -24,6 +24,8 @@ project = "Monitoreo"
 
 environment = "Dev"
 
-ec2_instances = ["", "", ""]
+ec2_instances = [{
+  id = ""
+}]
 
 sns_topic_arn = [""]
