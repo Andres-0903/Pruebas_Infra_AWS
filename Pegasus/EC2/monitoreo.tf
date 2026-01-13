@@ -6,7 +6,7 @@
 module "ec2_monitoring" {
   source = "git::https://github.com/Andres-0903/Infra_AWS_Module_Monitoring_EC2.git?ref=1.0.2"
 
-  ec2_instances = ["i-09e760154b7e7c682", "i-09e760154b7e7c682", "i-089305ba0767eb28d"]
+  ec2_instances = ["", "", ""]
   project       = "monitoreo"
   environment   = "dev"
   sns_topic_arn = var.sns_topic_arn
