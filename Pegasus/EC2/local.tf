@@ -1,8 +1,8 @@
 locals {
   ec2_instances = [
-    for inst in aws_instance.public_instance :
+    for id in values(aws_instance.public_instance)[*].id :
     {
-      id = inst.id
+      id = id
     }
   ]
 }

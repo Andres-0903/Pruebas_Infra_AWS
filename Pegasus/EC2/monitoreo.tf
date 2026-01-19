@@ -4,5 +4,7 @@ module "ec2_monitoring" {
   ec2_instances = local.ec2_instances
   project       = "monitoreo"
   environment   = "dev"
-  sns_topic_arn = var.sns_topic_arn
+  sns_topic_arn = aws_sns_topic.ec2_monitoring_topic.arn
+
+  depends_on = [aws_instance.public_instance]
 }
