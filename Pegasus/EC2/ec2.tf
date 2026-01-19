@@ -2,9 +2,7 @@
 #Datos instancia Ec2
 ###
 
-
 ###SNS Topic Subscription
-
 resource "aws_sns_topic" "sns_ec2" {
   name = "sns_ec2_alerts"
 }
