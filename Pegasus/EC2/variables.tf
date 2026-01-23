@@ -15,10 +15,10 @@ variable "sg_cidr_shh" {
   type        = string
 }
 
-variable "sns_topic_arn" {
-  description = "ARN del SNS Topic"
-  type        = list(string)
-}
+# variable "sns_topic_arn" {
+#   description = "ARN del SNS Topic"
+#   type        = list(string)
+# }
 
 ###Variables EC2###
 variable "ec2_specs" {

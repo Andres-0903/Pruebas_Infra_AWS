@@ -1,9 +1,8 @@
 module "ec2_monitoring" {
-  source = "git::https://github.com/Andres-0903/Infra_AWS_Module_Monitoring_EC2.git?ref=1.0.3"
+  source = "git::https://github.com/Andres-0903/Infra_AWS_Module_Monitoring_EC2.git?ref=1.0.4"
 
-  ec2_instances = local.ec2_instances # list(object({ id = string }))
+  ec2_instances = local.ec2_instances_by_name
   project       = "monitoreo"
   environment   = "dev"
-  sns_topic_arn = aws_sns_topic_subscription.sns_ec2_alerts.arn
-
+  sns_topic_arn = [aws_sns_topic.sns_ec2.arn]
 }
