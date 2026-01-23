@@ -24,3 +24,4 @@ project = "Monitoreo"
 
 environment = "Dev"
 
+sns_topic_arn = ["arenasandres7@gmail.com"]
