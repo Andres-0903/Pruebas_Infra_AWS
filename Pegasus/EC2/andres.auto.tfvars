@@ -24,8 +24,8 @@ project = "Monitoreo"
 
 environment = "Dev"
 
-ec2_instances = [{
-  id = ""
-}]
+# ec2_instances = [{
+#   id = ""
+# }]
 
-sns_topic_arn = [""]
+# sns_topic_arn = [""]
