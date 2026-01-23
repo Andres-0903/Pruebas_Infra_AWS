@@ -4,6 +4,6 @@ module "ec2_monitoring" {
   ec2_instances = local.ec2_instances # list(object({ id = string }))
   project       = "monitoreo"
   environment   = "dev"
-  sns_topic_arn = aws_sns_topic.ec2_monitoring.arn
+  sns_topic_arn = aws_sns_topic_subscription.sns_ec2_alerts.arn
 
 }
