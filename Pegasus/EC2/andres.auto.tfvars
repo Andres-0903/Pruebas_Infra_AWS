@@ -5,8 +5,8 @@ subnets_cidr = ["10.10.0.0/24", "10.10.1.0/24"]
 sg_cidr_shh = "0.0.0.0/0"
 
 ec2_specs = {
-  "ami"  = "ami-068c0051b15cdb816"
-  "type" = "t2.micro"
+  "ami"  = "ami-0532be01f26a3de55"
+  "type" = "t3.micro"
 }
 
 tags_generales = {
@@ -18,7 +18,7 @@ tags_generales = {
   "version IaC" = "v1.13"
 }
 
-instancias = ["monitoreo1", "monitoreo2", "monitoreo3"]
+instancias = ["Apache", "MySQL", "Java"]
 
 project = "Monitoreo"
 
