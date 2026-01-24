@@ -6,7 +6,7 @@ sg_cidr_shh = "0.0.0.0/0"
 
 ec2_specs = {
   "ami"  = "ami-0532be01f26a3de55"
-  "type" = "t3.micro"
+  "type" = "t3a.micro"
 }
 
 tags_generales = {

@@ -9,8 +9,9 @@ resource "aws_vpc" "vpc_virginia" {
 }
 
 resource "aws_subnet" "private_subnet" {
-  vpc_id     = aws_vpc.vpc_virginia.id
-  cidr_block = var.subnets_cidr[1]
+  vpc_id            = aws_vpc.vpc_virginia.id
+  cidr_block        = var.subnets_cidr[1]
+  availability_zone = "us-east-1a"
 
   tags = {
     "Name" = "Private_subnet"
@@ -19,8 +20,9 @@ resource "aws_subnet" "private_subnet" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  vpc_id     = aws_vpc.vpc_virginia.id
-  cidr_block = var.subnets_cidr[0]
+  vpc_id            = aws_vpc.vpc_virginia.id
+  cidr_block        = var.subnets_cidr[0]
+  availability_zone = "us-east-1b"
 
   tags = {
     "Name" = "Public_subnet"
