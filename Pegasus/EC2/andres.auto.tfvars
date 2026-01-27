@@ -9,20 +9,7 @@ ec2_specs = {
   "type" = "t3a.micro"
 }
 
-instancias = {
-  "Apache" = {
-    instance_id = "i-0bb1c2d3e4f5a6b7c"
-  }
-  "MySql" = {
-    instance_id = "i-1aa2b3c4d5e6f7g8h"
-  }
-
-  "Java" = {
-    instance_id = "i-2cc3d4e5f6g7h8i9j"
-  }
-}
-
-
+instancias = ["Apache", "Nginx", "MongoDB", "NodeJS"]
 
 tags_generales = {
   "env"         = "Dev"
@@ -32,8 +19,6 @@ tags_generales = {
   "project"     = "Pegasus-monitoring"
   "version IaC" = "v1.13"
 }
-
-
 
 project = "Monitoreo"
 

@@ -33,9 +33,7 @@ variable "tags_generales" {
 
 variable "instancias" {
   description = "Lista de instancias a crear"
-  type = map(object({
-    instance_id = string
-  }))
+  type        = set(string)
 }
 
 
