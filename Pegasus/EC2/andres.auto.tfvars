@@ -9,6 +9,21 @@ ec2_specs = {
   "type" = "t3a.micro"
 }
 
+instancias = {
+  "Apache" = {
+    instance_id = "i-0bb1c2d3e4f5a6b7c"
+  }
+  "MySql" = {
+    instance_id = "i-1aa2b3c4d5e6f7g8h"
+  }
+
+  "Java" = {
+    instance_id = "i-2cc3d4e5f6g7h8i9j"
+  }
+}
+
+
+
 tags_generales = {
   "env"         = "Dev"
   "owner"       = "Andres"
@@ -18,7 +33,7 @@ tags_generales = {
   "version IaC" = "v1.13"
 }
 
-instancias = ["Apache", "MySQL", "Java"]
+
 
 project = "Monitoreo"
 
