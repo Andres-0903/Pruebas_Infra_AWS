@@ -1,4 +1,4 @@
-output "ec2_instance_ids" {
-  description = "IDs de las instancias EC2 creadas"
-  value       = values(aws_instance.public_instance)[*].id
+output "ec2_instances" {
+  description = "Mapa de instancias EC2 por nombre"
+  value       = local.ec2_instances_by_name
 }
