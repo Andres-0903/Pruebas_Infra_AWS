@@ -1,1 +1,0 @@
-{"Path":"c:\\users\\andres\\desktop\\modulos_AWS\\Pruebas_Infra_AWS\\Pegasus\\EC2","Version":"2.0","Modules":[{"Key":"ec2_monitoring","Source":"git::https://github.com/Andres-0903/Infra_AWS_Module_Monitoring_EC2.git?ref=1.0.4","Dir":".infracost\\terraform_modules\\ee703a6dd2280aae5a072cd39f000c4a","DownloadURL":""}]}
