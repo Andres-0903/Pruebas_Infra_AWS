@@ -25,15 +25,15 @@ pipeline {
             }
         }
         
-        stage('Terraform Init') {
+        stage('Terraform Init(clean modules)') {
             when {
             expression { params.TERRAFORM_ACTION in ['plan', 'apply', 'destroy'] }
         }
         steps {
             dir('Pegasus/EC2') {
                 sh '''
-                rm -rf .terraform
-                terraform init -upgrade -input=false
+                rm -rf .terraform/modules
+                terraform init -upgrade -reconfigure -input=false
                 '''
             }
         }
