@@ -1,89 +1,3 @@
-// pipeline {
-//     agent any
-
-//     parameters {
-//         choice(
-//         name: 'TERRAFORM_ACTION',
-//         choices: ['plan', 'apply', 'destroy'],
-//         description: 'Seleccione la acción de Terraform'
-//         )
-//     }
-
-//     environment {
-//         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
-//         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-//         AWS_DEFAULT_REGION = 'us-east-1'
-//     }
-
-//     stages {
-
-//         stage('Checkout') {
-//             steps {
-//                 git branch: 'monitoring',
-//                 credentialsId: 'github-credentials',
-//                 url: 'https://github.com/Andres-0903/Pruebas_Infra_AWS.git'
-//             }
-//         }
-
-//         stage('Terraform Init') {
-//             when {
-//             expression { params.TERRAFORM_ACTION in ['plan', 'apply', 'destroy'] }
-//         }
-//         steps {
-//             dir('Pegasus/EC2') {
-//                 sh 'terraform init -input=false'
-//             }
-//         }
-//     }
-
-//     stage('Terraform Plan') {
-//         when {
-//         expression { params.TERRAFORM_ACTION == 'plan' }
-//     }
-//     steps {
-//         dir('Pegasus/EC2') {
-//             sh 'terraform plan'
-//         }
-//     }
-// }
-
-// stage('Terraform Apply') {
-//     when {
-//     expression { params.TERRAFORM_ACTION == 'apply' }
-// }
-// steps {
-//     input message: '¿Confirmas aplicar Terraform en AWS?'
-//     dir('Pegasus/EC2') {
-//         sh 'terraform apply -auto-approve'
-//     }
-// }
-// }
-
-// stage('Terraform Destroy') {
-//     when {
-//     expression { params.TERRAFORM_ACTION == 'destroy' }
-// }
-// steps {
-//     input message: '⚠️ ¿Confirmas destruir la infraestructura en AWS?'
-//     dir('Pegasus/EC2') {
-//         sh 'terraform destroy -auto-approve'
-//     }
-// }
-// }
-// }
-
-// post {
-//     success {
-//         echo '✅ Ejecución de Terraform finalizada correctamente'
-//     }
-//     failure {
-//         echo '❌ Falló el pipeline'
-//     }
-// }
-// }
-
-//Actualizado
-
 pipeline {
     agent any
     
@@ -119,7 +33,7 @@ pipeline {
             dir('Pegasus/EC2') {
                 sh '''
                 rm -rf .terraform
-                terraform init -input=false
+                terraform init -upgrade -input=false
                 '''
             }
         }
