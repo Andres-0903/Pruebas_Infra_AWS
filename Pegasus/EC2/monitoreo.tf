@@ -6,13 +6,13 @@ module "ec2_monitoring" {
   environment   = "dev"
   sns_topic_arn = [aws_sns_topic.sns_ec2.arn]
 
-  cpu_utilization_evaluation_periods = 2
+  cpu_utilization_evaluation_periods = 1
   cpu_utilization_period             = 120
-  cpu_utilization_threshold          = 20
+  cpu_utilization_threshold          = 50
 
-  memory_utilization_threshold_evaluation_periods = 2
+  memory_utilization_threshold_evaluation_periods = 1
   memory_utilization_period                       = 120
-  memory_utilization_threshold                    = 20
+  memory_utilization_threshold                    = 60
 }
 
 
