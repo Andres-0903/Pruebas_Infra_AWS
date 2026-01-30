@@ -8,6 +8,6 @@ module "cloudwatch_alarms_silence" {
     "monitoreo-EC2-CPUUtilization-MongoDB-dev"
   ]
 
-  mute_cron   = "cron(20 19 * * ? *)" # 02:20 PM
-  unmute_cron = "cron(30 19 * * ? *)" # 02:30 PM
+  mute_cron   = "cron(25 19 * * ? *)" # 02:25 PM
+  unmute_cron = "cron(35 19 * * ? *)" # 02:35 PM
 }
