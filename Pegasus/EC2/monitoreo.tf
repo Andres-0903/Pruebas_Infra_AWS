@@ -8,11 +8,11 @@ module "ec2_monitoring" {
 
   cpu_utilization_evaluation_periods = 1
   cpu_utilization_period             = 120
-  cpu_utilization_threshold          = 50
+  cpu_utilization_threshold          = 40
 
   memory_utilization_threshold_evaluation_periods = 1
   memory_utilization_period                       = 120
-  memory_utilization_threshold                    = 60
+  memory_utilization_threshold                    = 50
 }
 
 
