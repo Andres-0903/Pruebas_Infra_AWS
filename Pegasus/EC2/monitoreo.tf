@@ -16,3 +16,14 @@ module "ec2_monitoring" {
 }
 
 
+#####################Modulo silenciador de alarmas##################################
+module "cloudwatch_alarms_scheduler" {
+  source = "git::https://github.com/Andres-0903/cloudwatch-alarms-scheduler.git//CloudwatchSilence?ref=1.0.5"
+
+  name_prefix = "myapp"
+  alarm_names = ["high-cpu-alarm", "http-5xx-errors", "latency-p99"]
+
+  # 00:00→01:00 UTC
+  mute_cron   = "cron(30 23 * * ? *)" #06:30 PM
+  unmute_cron = "cron(45 23 * * ? *)" #06:45 PM
+}
