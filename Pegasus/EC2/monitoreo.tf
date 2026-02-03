@@ -7,12 +7,12 @@ module "ec2_monitoring" {
   sns_topic_arn = [aws_sns_topic.sns_ec2.arn]
 
   cpu_utilization_evaluation_periods = 1
-  cpu_utilization_period             = 120
-  cpu_utilization_threshold          = 50
+  cpu_utilization_period             = 60
+  cpu_utilization_threshold          = 40
 
   memory_utilization_threshold_evaluation_periods = 1
-  memory_utilization_period                       = 120
-  memory_utilization_threshold                    = 60
+  memory_utilization_period                       = 60
+  memory_utilization_threshold                    = 50
 }
 
 

@@ -1,5 +1,5 @@
 module "cloudwatch_alarms_silence" {
-  source = "github.com/Andres-0903/cloudwatch-alarms-scheduler//CloudwatchSilence?ref=1.0.3"
+  source = "github.com/Andres-0903/cloudwatch-alarms-scheduler//CloudwatchSilence?ref=1.0.4"
 
   alarm_names = [
     "monitoreo-EC2-CPUUtilization-Apache-dev",
@@ -8,6 +8,6 @@ module "cloudwatch_alarms_silence" {
     "monitoreo-EC2-CPUUtilization-MongoDB-dev"
   ]
 
-  mute_cron   = "cron(15 20 * * ? *)" # 03:15 PM
+  mute_cron   = "cron(10 20 * * ? *)" # 03:10 PM
   unmute_cron = "cron(30 20 * * ? *)" # 03:30 PM
 }
